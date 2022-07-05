@@ -1,0 +1,4 @@
+void main(void) {
+	double foo = 1.5;
+	print("Wow it has been some years since I learned C++");
+}
