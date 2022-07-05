@@ -17,19 +17,24 @@ auto main() -> int
 	}
 	std::string f_content((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
 
-	std::cout << f_content << std::endl;
+	// std::cout << f_content << std::endl;
 
 
 	TokenBuilding tokenBuilding;
 	std::vector<Token> tokens = tokenBuilding.parse(f_content);
 
-	for (Token currentToken : tokens)
-	{
-		currentToken.DebugPrint();
-	}
+	/*
+	 *  for (Token currentToken : tokens)
+        {
+            currentToken.debugPrint();
+        }
+    */
+
 
 	Parser parser;
 	parser.parse(tokens);
+
+    parser.debugPrint();
 
 	return 0;
 }
