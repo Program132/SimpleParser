@@ -1,0 +1,36 @@
+        -:    0:Source:D:/GitHub/SimpleParser/Content/Type.h
+        -:    0:Graph:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\Parser.cpp.gcno
+        -:    0:Data:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\Parser.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include <iostream>
+        -:    4:#include <string>
+        -:    5:#include <vector>
+        -:    6:
+        -:    7:namespace SimpleParser {
+        -:    8:    enum BuiltinTypes {
+        -:    9:        VOID,
+        -:   10:        INT8,
+        -:   11:        UINT8,
+        -:   12:        INT32,
+        -:   13:        UINT32,
+        -:   14:        DOUBLE,
+        -:   15:        STRUCT
+        -:   16:    };
+        -:   17:
+        -:   18:
+        -:   19:    class Type {
+        -:   20:    public:
+function _ZN12SimpleParser4TypeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12BuiltinTypesE called 19 returned 100% blocks executed 100%
+       19:   21:        Type(const std::string &name = "", enum BuiltinTypes type = VOID)
+       19:   22:                : mName(name), mType(type) {}
+       19:   22-block  0
+call    0 returned 19
+call    1 returned 19
+        -:   23:
+        -:   24:        std::string mName;
+        -:   25:        enum BuiltinTypes mType;
+        -:   26:        std::vector<Type> mField; // Que pour les structs !
+        -:   27:    };
+        -:   28:}

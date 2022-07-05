@@ -1,0 +1,89 @@
+        -:    0:Source:D:/GitHub/SimpleParser/Content/FunctionDefinition.cpp
+        -:    0:Graph:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\FunctionDefinition.cpp.gcno
+        -:    0:Data:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\FunctionDefinition.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "FunctionDefinition.h"
+        -:    2:
+        -:    3:namespace SimpleParser {
+function _ZNK12SimpleParser18FunctionDefinition10DebugPrintEv called 0 returned 0% blocks executed 0%
+    #####:    4:    void FunctionDefinition::DebugPrint() const
+        -:    5:    {
+    #####:    6:        std::cout << FunctionName << "(\n";
+    %%%%%:    6-block  0
+call    0 never executed
+call    1 never executed
+        -:    7:
+    #####:    8:        for (ParameterFunction param : FunctionParameters)
+call    0 never executed
+call    1 never executed
+    %%%%%:    8-block  0
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+    %%%%%:    8-block  1
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+        -:    9:        {
+    #####:   10:            param.DebugPrint();
+    %%%%%:   10-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   11:            std::cout << "\n";
+    %%%%%:   11-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   12:        }
+    %%%%%:   12-block  0
+call    0 never executed
+    $$$$$:   12-block  1
+call    1 never executed
+        -:   13:
+    #####:   14:        std::cout << ") {\n" << std::endl;
+    %%%%%:   14-block  0
+call    0 never executed
+call    1 never executed
+    #####:   15:        for (Statement statement : FunctionStatements)
+call    0 never executed
+call    1 never executed
+    %%%%%:   15-block  0
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+    %%%%%:   15-block  1
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+        -:   16:        {
+    #####:   17:            statement.DebugPrint();
+    %%%%%:   17-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   18:        }
+    %%%%%:   18-block  0
+call    0 never executed
+    $$$$$:   18-block  1
+call    1 never executed
+    #####:   19:        std::cout << "} \n" << std::endl;
+    %%%%%:   19-block  0
+call    0 never executed
+call    1 never executed
+    #####:   20:    }
+        -:   21:
+function _ZNK12SimpleParser17ParameterFunction10DebugPrintEv called 0 returned 0% blocks executed 0%
+    #####:   22:    void ParameterFunction::DebugPrint() const
+        -:   23:    {
+    #####:   24:        std::cout << ParameterType.mName << " " << ParameterName;
+    %%%%%:   24-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   25:    }
+        -:   26:}

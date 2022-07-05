@@ -1,0 +1,1571 @@
+        -:    0:Source:D:/GitHub/SimpleParser/Content/Parser.cpp
+        -:    0:Graph:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\Parser.cpp.gcno
+        -:    0:Data:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\Parser.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Parser.h"
+        -:    2:
+        -:    3:namespace SimpleParser {
+function _ZN12SimpleParser6ParserC2Ev called 1 returned 100% blocks executed 46%
+        1:    4:	Parser::Parser() {
+        1:    4-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:    5:		mTypes["void"] = Type("void", VOID);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:    5-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:    5-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:    5-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:    5-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:    5-block  4
+call   20 never executed
+    $$$$$:    5-block  5
+    $$$$$:    5-block  6
+call   21 never executed
+    $$$$$:    5-block  7
+    $$$$$:    5-block  8
+call   22 never executed
+    $$$$$:    5-block  9
+    $$$$$:    5-block 10
+call   23 never executed
+    $$$$$:    5-block 11
+    $$$$$:    5-block 12
+call   24 never executed
+    $$$$$:    5-block 13
+        1:    6:		mTypes["int"] = Type("signed int", INT32);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:    6-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:    6-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:    6-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:    6-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:    6-block  4
+call   20 never executed
+    $$$$$:    6-block  5
+    $$$$$:    6-block  6
+call   21 never executed
+    $$$$$:    6-block  7
+    $$$$$:    6-block  8
+call   22 never executed
+    $$$$$:    6-block  9
+    $$$$$:    6-block 10
+call   23 never executed
+    $$$$$:    6-block 11
+    $$$$$:    6-block 12
+call   24 never executed
+    $$$$$:    6-block 13
+        1:    7:		mTypes["unsigned"] = Type("unsignd int", INT32);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:    7-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:    7-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:    7-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:    7-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:    7-block  4
+call   20 never executed
+    $$$$$:    7-block  5
+    $$$$$:    7-block  6
+call   21 never executed
+    $$$$$:    7-block  7
+    $$$$$:    7-block  8
+call   22 never executed
+    $$$$$:    7-block  9
+    $$$$$:    7-block 10
+call   23 never executed
+    $$$$$:    7-block 11
+    $$$$$:    7-block 12
+call   24 never executed
+    $$$$$:    7-block 13
+        1:    8:        mTypes["char"] = Type("signed char", INT8);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:    8-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:    8-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:    8-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:    8-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:    8-block  4
+call   20 never executed
+    $$$$$:    8-block  5
+    $$$$$:    8-block  6
+call   21 never executed
+    $$$$$:    8-block  7
+    $$$$$:    8-block  8
+call   22 never executed
+    $$$$$:    8-block  9
+    $$$$$:    8-block 10
+call   23 never executed
+    $$$$$:    8-block 11
+    $$$$$:    8-block 12
+call   24 never executed
+    $$$$$:    8-block 13
+        1:    9:		mTypes["uint8_t"] = Type("uint8_t", INT8);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:    9-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:    9-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:    9-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:    9-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:    9-block  4
+call   20 never executed
+    $$$$$:    9-block  5
+    $$$$$:    9-block  6
+call   21 never executed
+    $$$$$:    9-block  7
+    $$$$$:    9-block  8
+call   22 never executed
+    $$$$$:    9-block  9
+    $$$$$:    9-block 10
+call   23 never executed
+    $$$$$:    9-block 11
+    $$$$$:    9-block 12
+call   24 never executed
+    $$$$$:    9-block 13
+        1:   10:        mTypes["double"] = Type("double", DOUBLE);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   10-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   10-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:   10-block  2
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:   10-block  3
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+call   18 returned 1
+call   19 returned 1
+    $$$$$:   10-block  4
+call   20 never executed
+    $$$$$:   10-block  5
+    $$$$$:   10-block  6
+call   21 never executed
+    $$$$$:   10-block  7
+    $$$$$:   10-block  8
+call   22 never executed
+    $$$$$:   10-block  9
+    $$$$$:   10-block 10
+call   23 never executed
+    $$$$$:   10-block 11
+    $$$$$:   10-block 12
+call   24 never executed
+    $$$$$:   10-block 13
+        1:   11:	}
+    $$$$$:   11-block  0
+call    0 never executed
+    $$$$$:   11-block  1
+call    1 never executed
+        -:   12:
+function _ZNK12SimpleParser6Parser10debugPrintEv called 0 returned 0% blocks executed 0%
+    #####:   13:    void Parser::debugPrint() const
+        -:   14:    {
+    #####:   15:        for (auto funcPair : Functions)
+    %%%%%:   15-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:   15-block  1
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+    %%%%%:   15-block  2
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+        -:   16:        {
+    #####:   17:            funcPair.second.DebugPrint();
+    %%%%%:   17-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   18:        }
+    %%%%%:   18-block  0
+call    0 never executed
+    $$$$$:   18-block  1
+call    1 never executed
+    #####:   19:    }
+    %%%%%:   19-block  0
+        -:   20:
+        -:   21:
+function _ZN12SimpleParser6Parser17expectFunctionDefEv called 1 returned 0% blocks executed 41%
+        1:   22:	bool Parser::expectFunctionDef() {
+        1:   23:        std::vector<Token>::iterator parseStart = _currentToken;
+        1:   24:		std::optional<Type> possibleType = expectType();
+        1:   24-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   25:		if (possibleType.has_value()) // Un type à été trouvé
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        -:   26:		{
+        1:   27:			std::optional<Token> possibleName = expectIdentifier();
+        1:   27-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   27-block  1
+        -:   28:
+        1:   29:			if (possibleName.has_value()) { // On a un nom
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        2:   30:				std::optional<Token> possibleOperator = expectOperator("(");
+        1:   30-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   30-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+    $$$$$:   30-block  2
+    $$$$$:   30-block  3
+        -:   31:
+        1:   32:				if (possibleOperator.has_value()) { // On a une fonction
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        -:   33:
+        1:   34:                    FunctionDefinition func;
+        1:   34-block  0
+call    0 returned 1
+        1:   35:                    func.FunctionName = possibleName->mText;
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   36:
+        2:   37:                    while (!expectOperator(")").has_value())
+        1:   37-block  0
+        2:   37-block  1
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   37-block  2
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   37-block  3
+call    7 returned 2
+call    8 returned 2
+call    9 returned 2
+call   10 returned 2
+branch 11 taken 2
+branch 12 taken 0 (fallthrough)
+    $$$$$:   37-block  4
+call   13 never executed
+    $$$$$:   37-block  5
+    $$$$$:   37-block  6
+call   14 never executed
+    $$$$$:   37-block  7
+        -:   38:                    {
+        2:   39:                        std::optional<Type> possibleTypeParameter = expectType();
+        2:   39-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   40:                        if (!possibleTypeParameter.has_value())
+        2:   40-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+        -:   41:                        {
+    #####:   42:                            throw std::runtime_error("Un type est attendu avant le nom de l'argument.");
+    %%%%%:   42-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   42-block  1
+call    4 never executed
+    $$$$$:   42-block  2
+call    5 never executed
+        -:   43:                        }
+        -:   44:
+        2:   45:                        std::optional<Token> possibleVariableNameParameter = expectIdentifier();
+        2:   45-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   45-block  1
+        -:   46:
+        2:   47:                        ParameterFunction param;
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   48:                        param.ParameterType = possibleType->mName;
+        2:   48-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   48-block  1
+call    4 returned 2
+call    5 returned 2
+        2:   49:                        if (possibleVariableNameParameter.has_value())
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0
+        -:   50:                        {
+        2:   51:                            param.ParameterName = possibleVariableNameParameter->mText;
+        2:   51-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   52:                        }
+        2:   53:                        func.FunctionParameters.push_back(param);
+        2:   53-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   54:
+        2:   55:                        if (expectOperator(")").has_value())
+        2:   55-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   55-block  1
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   55-block  2
+call    7 returned 2
+call    8 returned 2
+call    9 returned 2
+call   10 returned 2
+branch 11 taken 1 (fallthrough)
+branch 12 taken 1
+    $$$$$:   55-block  3
+call   13 never executed
+    $$$$$:   55-block  4
+    $$$$$:   55-block  5
+call   14 never executed
+    $$$$$:   55-block  6
+        -:   56:                        {
+        1:   57:                            break;
+        1:   57-block  0
+        -:   58:                        }
+       1*:   59:                        if (!expectOperator(",").has_value() && !expectOperator(")").has_value())
+        1:   59-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   59-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   59-block  2
+call    7 returned 1
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1
+    %%%%%:   59-block  3
+call   10 never executed
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:   59-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:   59-block  5
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   59-block  6
+        1:   59-block  7
+        1:   59-block  8
+branch 20 taken 0 (fallthrough)
+branch 21 taken 1
+    %%%%%:   59-block  9
+call   22 never executed
+        1:   59-block 10
+branch 23 taken 0 (fallthrough)
+branch 24 taken 1
+    %%%%%:   59-block 11
+call   25 never executed
+        1:   59-block 12
+branch 26 taken 0 (fallthrough)
+branch 27 taken 1
+    %%%%%:   59-block 13
+call   28 never executed
+        1:   59-block 14
+branch 29 taken 1 (fallthrough)
+branch 30 taken 0
+        1:   59-block 15
+call   31 returned 1
+        1:   59-block 16
+branch 32 taken 1 (fallthrough)
+branch 33 taken 0
+        1:   59-block 17
+call   34 returned 1
+        1:   59-block 18
+branch 35 taken 1 (fallthrough)
+branch 36 taken 0
+        1:   59-block 19
+call   37 returned 1
+        1:   59-block 20
+branch 38 taken 0 (fallthrough)
+branch 39 taken 1
+    $$$$$:   59-block 21
+branch 40 never executed
+branch 41 never executed
+    $$$$$:   59-block 22
+call   42 never executed
+    $$$$$:   59-block 23
+    $$$$$:   59-block 24
+branch 43 never executed
+branch 44 never executed
+    $$$$$:   59-block 25
+call   45 never executed
+    $$$$$:   59-block 26
+    $$$$$:   59-block 27
+branch 46 never executed
+branch 47 never executed
+    $$$$$:   59-block 28
+call   48 never executed
+    $$$$$:   59-block 29
+    $$$$$:   59-block 30
+branch 49 never executed
+branch 50 never executed
+    $$$$$:   59-block 31
+call   51 never executed
+    $$$$$:   59-block 32
+    $$$$$:   59-block 33
+branch 52 never executed
+branch 53 never executed
+    $$$$$:   59-block 34
+call   54 never executed
+    $$$$$:   59-block 35
+    $$$$$:   59-block 36
+branch 55 never executed
+branch 56 never executed
+    $$$$$:   59-block 37
+call   57 never executed
+    $$$$$:   59-block 38
+        -:   60:                        {
+    #####:   61:                            throw std::runtime_error("Un ',' est attendu pour separer les parametres. Une ')' est attendu pour indiquer la fin de la liste des arguments.");
+    %%%%%:   61-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   61-block  1
+call    4 never executed
+    $$$$$:   61-block  2
+call    5 never executed
+        -:   62:                        }
+        4:   63:                    }
+        1:   63-block  0
+        2:   63-block  1
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:   63-block  2
+        2:   63-block  3
+call    3 returned 2
+branch  4 taken 1 (fallthrough)
+branch  5 taken 1
+        1:   63-block  4
+        2:   63-block  5
+call    6 returned 2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 1
+    $$$$$:   63-block  6
+call    9 never executed
+    $$$$$:   63-block  7
+call   10 never executed
+    $$$$$:   63-block  8
+call   11 never executed
+        -:   64:
+        1:   65:                    std::optional<std::vector<Statement>> statements = parseFunctionBody();
+        1:   65-block  0
+call    0 returned 0
+branch  1 taken 0 (fallthrough)
+branch  2 taken 0 (throw)
+    #####:   66:                    if (!statements.has_value())
+    %%%%%:   66-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   67:                    {
+    #####:   68:                        Parser::_currentToken = parseStart;
+    #####:   69:                        return false;
+    %%%%%:   69-block  0
+        -:   70:                    }
+    #####:   71:                    func.FunctionStatements.insert(func.FunctionStatements.begin(), statements->begin(), statements->end());
+    %%%%%:   71-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    $$$$$:   71-block  1
+    $$$$$:   71-block  2
+        -:   72:
+    #####:   73:                    Functions[func.FunctionName] = func;
+    %%%%%:   73-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   73-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+        -:   74:
+    #####:   75:                    return true;
+    %%%%%:   75-block  0
+    #####:   76:				} else {
+    %%%%%:   76-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   76-block  1
+call    2 never executed
+    $$$$$:   76-block  2
+call    3 never executed
+    #####:   77:                    Parser::_currentToken = parseStart;
+        -:   78:				}
+    #####:   79:			} else {
+    %%%%%:   79-block  0
+    %%%%%:   79-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   79-block  2
+call    3 never executed
+    #####:   80:                Parser::_currentToken = parseStart;
+    %%%%%:   80-block  0
+        -:   81:			}
+    #####:   82:		}
+    %%%%%:   82-block  0
+    %%%%%:   82-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   82-block  2
+call    3 never executed
+    #####:   83:		return false;
+    %%%%%:   83-block  0
+    #####:   84:	}
+    %%%%%:   84-block  0
+call    0 never executed
+    $$$$$:   84-block  1
+call    1 never executed
+        -:   85:
+function _ZN12SimpleParser6Parser5parseERSt6vectorINS_5TokenESaIS2_EE called 1 returned 0% blocks executed 54%
+        1:   86:	void Parser::parse(std::vector<Token>& tokens)
+        -:   87:	{
+        1:   88:		Parser::_endToken = tokens.end();
+        1:   88-block  0
+call    0 returned 1
+        1:   89:		Parser::_currentToken = tokens.begin();
+call    0 returned 1
+        -:   90:
+        1:   91:		while (Parser::_currentToken != Parser::_endToken)
+        1:   91-block  0
+call    0 returned 1
+branch  1 taken 1
+branch  2 taken 0 (fallthrough)
+        -:   92:		{
+       1*:   93:			if (Parser::expectFunctionDef())
+        1:   93-block  0
+call    0 returned 0
+branch  1 never executed
+branch  2 never executed
+        -:   94:			{
+        -:   95:
+        -:   96:			}
+        -:   97:			else {
+    #####:   98:				std::cerr <<  "Identifier inconnu : " << Parser::_currentToken->mText << std::endl;
+    %%%%%:   98-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   99:				++Parser::_currentToken;
+call    0 never executed
+        -:  100:			}
+        -:  101:		}
+    #####:  102:	}
+        -:  103:
+function _ZN12SimpleParser6Parser16expectIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 16978425 returned 100% blocks executed 74%
+ 16978425:  104:	std::optional<Token> Parser::expectIdentifier(std::string const& name)
+        -:  105:	{
+16978425*:  106:		if (Parser::_currentToken == Parser::_endToken) { return std::nullopt; }
+ 16978425:  106-block  0
+call    0 returned 16978425
+branch  1 taken 0 (fallthrough)
+branch  2 taken 16978425
+    %%%%%:  106-block  1
+call    3 never executed
+        -:  107:
+ 16978425:  108:		if (Parser::_currentToken->mType != IDENTIFIER) { return std::nullopt; }
+ 16978425:  108-block  0
+call    0 returned 16978425
+branch  1 taken 16978417 (fallthrough)
+branch  2 taken 8
+ 16978417:  108-block  1
+call    3 returned 16978417
+        -:  109:
+       8*:  110:		if (!name.empty() && Parser::_currentToken->mText != name) { return std::nullopt; }
+        8:  110-block  0
+call    0 returned 8
+branch  1 taken 0 (fallthrough)
+branch  2 taken 8
+    %%%%%:  110-block  1
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  110-block  2
+        8:  110-block  3
+        8:  110-block  4
+branch  7 taken 0 (fallthrough)
+branch  8 taken 8
+    %%%%%:  110-block  5
+call    9 never executed
+        -:  111:
+        8:  112:		Token returnToken = *Parser::_currentToken;
+        8:  112-block  0
+call    0 returned 8
+call    1 returned 8
+branch  2 taken 8 (fallthrough)
+branch  3 taken 0 (throw)
+        8:  113:		++Parser::_currentToken;
+        8:  113-block  0
+call    0 returned 8
+        8:  114:		return returnToken;
+call    0 returned 8
+        8:  115:	}
+call    0 returned 8
+        -:  116:
+function _ZN12SimpleParser6Parser14expectOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 8489218 returned 100% blocks executed 96%
+  8489218:  117:	std::optional<Token> Parser::expectOperator(std::string const& name)
+        -:  118:	{
+ 8489218*:  119:		if (Parser::_currentToken == Parser::_endToken) { return std::nullopt; }
+  8489218:  119-block  0
+call    0 returned 8489218
+branch  1 taken 0 (fallthrough)
+branch  2 taken 8489218
+    %%%%%:  119-block  1
+call    3 never executed
+  8489218:  120:		if (Parser::_currentToken->mType != OPERATOR) { return std::nullopt; }
+  8489218:  120-block  0
+call    0 returned 8489218
+branch  1 taken 3 (fallthrough)
+branch  2 taken 8489215
+        3:  120-block  1
+call    3 returned 3
+  8489215:  121:		if (!name.empty() && Parser::_currentToken->mText != name) { return std::nullopt; }
+  8489215:  121-block  0
+call    0 returned 8489215
+branch  1 taken 8489215 (fallthrough)
+branch  2 taken 0
+  8489215:  121-block  1
+call    3 returned 8489215
+call    4 returned 8489215
+branch  5 taken 8489210 (fallthrough)
+branch  6 taken 5
+  8489210:  121-block  2
+        5:  121-block  3
+  8489215:  121-block  4
+branch  7 taken 8489210 (fallthrough)
+branch  8 taken 5
+  8489210:  121-block  5
+call    9 returned 8489210
+        -:  122:
+        5:  123:		Token returnToken = *Parser::_currentToken;
+        5:  123-block  0
+call    0 returned 5
+call    1 returned 5
+branch  2 taken 5 (fallthrough)
+branch  3 taken 0 (throw)
+        5:  124:		++Parser::_currentToken;
+        5:  124-block  0
+call    0 returned 5
+        5:  125:		return returnToken;
+call    0 returned 5
+        5:  126:	}
+call    0 returned 5
+        -:  127:
+function _ZN12SimpleParser6Parser10expectTypeEv called 8489213 returned 100% blocks executed 72%
+  8489213:  128:	std::optional<Type> Parser::expectType() {
+  8489213:  129:		std::optional<Token> possibleType = expectIdentifier();
+  8489213:  129-block  0
+call    0 returned 8489213
+call    1 returned 8489213
+branch  2 taken 8489213 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  129-block  1
+  8489213:  130:		if (!possibleType) { return std::nullopt; }
+call    0 returned 8489213
+branch  1 taken 8489209 (fallthrough)
+branch  2 taken 4
+  8489209:  130-block  0
+call    3 returned 8489209
+        4:  131:		std::map<std::string, Type>::iterator foundType = mTypes.find(possibleType->mText);
+        4:  131-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
+branch  3 taken 0 (throw)
+        4:  132:		if (foundType == mTypes.end()) { 
+        4:  132-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 0 (fallthrough)
+branch  3 taken 4
+    #####:  133:			--Parser::_currentToken;
+    %%%%%:  133-block  0
+call    0 never executed
+    #####:  134:			return std::nullopt;
+call    0 never executed
+        -:  135:		}
+        -:  136:
+        4:  137:		return foundType->second;
+        4:  137-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
+branch  3 taken 0 (throw)
+  8489213:  138:	}
+  8489213:  138-block  0
+call    0 returned 8489213
+    $$$$$:  138-block  1
+call    1 never executed
+        -:  139:
+function _ZN12SimpleParser6Parser17parseFunctionBodyEv called 1 returned 0% blocks executed 54%
+        1:  140:    std::optional<std::vector<Statement>> Parser::parseFunctionBody()
+        -:  141:    {
+        1:  142:        if (!expectOperator("{").has_value()) {
+        1:  142-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  142-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  142-block  2
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1
+    $$$$$:  142-block  3
+call   13 never executed
+    $$$$$:  142-block  4
+    $$$$$:  142-block  5
+call   14 never executed
+    $$$$$:  142-block  6
+    #####:  143:            return std::nullopt;
+    %%%%%:  143-block  0
+call    0 never executed
+        -:  144:        }
+        -:  145:
+        1:  146:        std::vector<Statement> statements;
+        1:  146-block  0
+call    0 returned 1
+        -:  147:
+  8489210:  148:        while (!expectOperator("}").has_value())
+  8489210:  148-block  0
+call    0 returned 8489210
+call    1 returned 8489210
+branch  2 taken 8489210 (fallthrough)
+branch  3 taken 0 (throw)
+  8489210:  148-block  1
+call    4 returned 8489210
+branch  5 taken 8489210 (fallthrough)
+branch  6 taken 0 (throw)
+  8489210:  148-block  2
+call    7 returned 8489210
+call    8 returned 8489210
+call    9 returned 8489210
+call   10 returned 8489210
+branch 11 taken 8489210
+branch 12 taken 0 (fallthrough)
+    $$$$$:  148-block  3
+call   13 never executed
+    $$$$$:  148-block  4
+    $$$$$:  148-block  5
+call   14 never executed
+    $$$$$:  148-block  6
+        -:  149:        {
+  8489210:  150:            std::optional<Statement> statement = expectOneValue();
+  8489210:  150-block  0
+call    0 returned 8489209
+branch  1 taken 8489209 (fallthrough)
+branch  2 taken 0 (throw)
+  8489209:  151:            if (statement.has_value())
+  8489209:  151-block  0
+call    0 returned 8489209
+branch  1 taken 1 (fallthrough)
+branch  2 taken 8489208
+        -:  152:            {
+        1:  153:                statements.push_back(statement.value());
+        1:  153-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  153-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  154:            }
+  8489209:  155:        }
+  8489209:  155-block  0
+call    0 returned 8489209
+    $$$$$:  155-block  1
+call    1 never executed
+        -:  156:
+    #####:  157:        return statements;
+    %%%%%:  157-block  0
+call    0 never executed
+    #####:  158:    }
+call    0 never executed
+    $$$$$:  158-block  0
+call    1 never executed
+        -:  159:
+function _ZN12SimpleParser6Parser14expectOneValueEv called 8489211 returned 100% blocks executed 44%
+  8489211:  160:    std::optional<Statement> Parser::expectOneValue()
+        -:  161:    {
+  8489211:  162:        std::optional<Statement> res;
+  8489211:  163:        if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == DOUBLE_LITERAL)
+  8489211:  163-block  0
+call    0 returned 8489211
+branch  1 taken 8489211 (fallthrough)
+branch  2 taken 0
+  8489211:  163-block  1
+call    3 returned 8489211
+branch  4 taken 1 (fallthrough)
+branch  5 taken 8489210
+        1:  163-block  2
+  8489210:  163-block  3
+  8489211:  163-block  4
+branch  6 taken 1 (fallthrough)
+branch  7 taken 8489210
+        -:  164:        {
+        1:  165:            Statement doubleLitteralStatement;
+        1:  165-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  166:            doubleLitteralStatement.kind = StatementKind::LITTERAL;
+        1:  167:            doubleLitteralStatement.StatementName = _currentToken->mText;
+        1:  167-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  168:            doubleLitteralStatement.StatementType = Type("double", DOUBLE);
+        1:  168-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  168-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  168-block  2
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+    $$$$$:  168-block  3
+call   11 never executed
+    $$$$$:  168-block  4
+    $$$$$:  168-block  5
+call   12 never executed
+    $$$$$:  168-block  6
+        1:  169:            res = doubleLitteralStatement;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  170:            ++Parser::_currentToken;
+        1:  170-block  0
+call    0 returned 1
+        -:  171:
+        1:  172:        }
+call    0 returned 1
+    $$$$$:  172-block  0
+call    1 never executed
+ 8489210*:  173:        else if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == INTERGER_LITERAL)
+  8489210:  173-block  0
+call    0 returned 8489210
+branch  1 taken 8489210 (fallthrough)
+branch  2 taken 0
+  8489210:  173-block  1
+call    3 returned 8489210
+branch  4 taken 0 (fallthrough)
+branch  5 taken 8489210
+    %%%%%:  173-block  2
+  8489210:  173-block  3
+  8489210:  173-block  4
+branch  6 taken 0 (fallthrough)
+branch  7 taken 8489210
+        -:  174:        {
+    #####:  175:            Statement integerLitteralStatement;
+    %%%%%:  175-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  176:            integerLitteralStatement.kind = StatementKind::LITTERAL;
+    #####:  177:            integerLitteralStatement.StatementName = _currentToken->mText;
+    %%%%%:  177-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  178:            integerLitteralStatement.StatementType = Type("signed integer", INT32);
+    %%%%%:  178-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  178-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  178-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:  178-block  3
+call   11 never executed
+    $$$$$:  178-block  4
+    $$$$$:  178-block  5
+call   12 never executed
+    $$$$$:  178-block  6
+    #####:  179:            res = integerLitteralStatement;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  180:            ++Parser::_currentToken;
+    %%%%%:  180-block  0
+call    0 never executed
+        -:  181:
+    #####:  182:        }
+call    0 never executed
+    $$$$$:  182-block  0
+call    1 never executed
+ 8489210*:  183:        else if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == STRING_LITTERAL)
+  8489210:  183-block  0
+call    0 returned 8489210
+branch  1 taken 8489210 (fallthrough)
+branch  2 taken 0
+  8489210:  183-block  1
+call    3 returned 8489210
+branch  4 taken 0 (fallthrough)
+branch  5 taken 8489210
+    %%%%%:  183-block  2
+  8489210:  183-block  3
+  8489210:  183-block  4
+branch  6 taken 0 (fallthrough)
+branch  7 taken 8489210
+        -:  184:        {
+    #####:  185:            Statement stringLitteralStatement;
+    %%%%%:  185-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  186:            stringLitteralStatement.kind = StatementKind::LITTERAL;
+    #####:  187:            stringLitteralStatement.StatementName = Parser::_currentToken->mText;
+    %%%%%:  187-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  188:            stringLitteralStatement.StatementType = Type("string", UINT8);
+    %%%%%:  188-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  188-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  188-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:  188-block  3
+call   11 never executed
+    $$$$$:  188-block  4
+    $$$$$:  188-block  5
+call   12 never executed
+    $$$$$:  188-block  6
+    #####:  189:            res = stringLitteralStatement;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  190:            ++Parser::_currentToken;
+    %%%%%:  190-block  0
+call    0 never executed
+        -:  191:
+    #####:  192:        }
+call    0 never executed
+    $$$$$:  192-block  0
+call    1 never executed
+        -:  193:        else {
+  8489210:  194:            res = expectVariableDeclaration();
+  8489210:  194-block  0
+call    0 returned 8489210
+branch  1 taken 8489210 (fallthrough)
+branch  2 taken 0 (throw)
+  8489210:  194-block  1
+call    3 returned 8489210
+call    4 returned 8489210
+        -:  195:        }
+  8489211:  196:        if (!res.has_value())
+  8489211:  196-block  0
+call    0 returned 8489211
+branch  1 taken 8489209 (fallthrough)
+branch  2 taken 2
+        -:  197:        {
+  8489209:  198:            res = expectFunctionCall();
+  8489209:  198-block  0
+call    0 returned 8489208
+branch  1 taken 8489208 (fallthrough)
+branch  2 taken 0 (throw)
+  8489208:  198-block  1
+call    3 returned 8489208
+call    4 returned 8489208
+        -:  199:        }
+  8489210:  200:        return res;
+  8489210:  200-block  0
+  8489210:  200-block  1
+    =====:  201:    }
+    $$$$$:  201-block  0
+call    0 never executed
+        -:  202:
+function _ZN12SimpleParser6Parser25expectVariableDeclarationEv called 8489210 returned 100% blocks executed 60%
+  8489210:  203:    std::optional<Statement> Parser::expectVariableDeclaration()
+        -:  204:    {
+  8489210:  205:        std::vector<Token>::iterator startToken = _currentToken;
+  8489210:  206:        std::optional<Type> possibleType = expectType();
+  8489210:  206-block  0
+call    0 returned 8489210
+branch  1 taken 8489210 (fallthrough)
+branch  2 taken 0 (throw)
+  8489210:  207:        if (!possibleType.has_value())
+  8489210:  207-block  0
+call    0 returned 8489210
+branch  1 taken 8489209 (fallthrough)
+branch  2 taken 1
+        -:  208:        {
+  8489209:  209:            Parser::_currentToken = startToken;
+  8489209:  210:            return std::nullopt;
+  8489209:  210-block  0
+call    0 returned 8489209
+        -:  211:        }
+        -:  212:
+        1:  213:        std::optional<Token> possibleVariableName = expectIdentifier();
+        1:  213-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  213-block  1
+        1:  214:        if (!possibleVariableName.has_value()) {
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    #####:  215:            Parser::_currentToken = startToken;
+    #####:  216:            return std::nullopt;
+    %%%%%:  216-block  0
+call    0 never executed
+        -:  217:        }
+        -:  218:
+        1:  219:        Statement statement;
+        1:  219-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  220:        statement.kind = StatementKind::VARIABLE_DECLARATION;
+        1:  221:        statement.StatementName = possibleVariableName->mText;
+        1:  221-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  222:        statement.StatementType = possibleType.value();
+        1:  222-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  222-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  223:
+        1:  224:        if (expectOperator("=").has_value())
+        1:  224-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  224-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  224-block  2
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
+branch 12 taken 0
+    $$$$$:  224-block  3
+call   13 never executed
+    $$$$$:  224-block  4
+    $$$$$:  224-block  5
+call   14 never executed
+    $$$$$:  224-block  6
+        -:  225:        {
+        1:  226:            std::optional<Statement> initialValue = expectOneValue();
+        1:  226-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  227:            if (!initialValue.has_value())
+        1:  227-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+        -:  228:            {
+    #####:  229:                throw std::runtime_error("Une valeur est attendu a droite du '='.");
+    %%%%%:  229-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  229-block  1
+call    4 never executed
+    $$$$$:  229-block  2
+call    5 never executed
+        -:  230:            }
+        -:  231:
+        1:  232:            statement.StatementParameters.push_back(initialValue.value());
+        1:  232-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  232-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  233:        }
+        1:  233-block  0
+call    0 returned 1
+    $$$$$:  233-block  1
+call    1 never executed
+        -:  234:
+        1:  235:        return statement;
+        1:  235-block  0
+call    0 returned 1
+  8489210:  236:    }
+call    0 returned 1
+        1:  236-block  0
+call    1 returned 1
+  8489210:  236-block  1
+call    2 returned 8489210
+    $$$$$:  236-block  2
+call    3 never executed
+    $$$$$:  236-block  3
+call    4 never executed
+    $$$$$:  236-block  4
+call    5 never executed
+        -:  237:
+function _ZN12SimpleParser6Parser18expectFunctionCallEv called 8489209 returned 100% blocks executed 7%
+  8489209:  238:    std::optional<Statement> Parser::expectFunctionCall() {
+  8489209:  239:        std::vector<Token>::iterator startToken = Parser::_currentToken;
+        -:  240:
+  8489209:  241:        std::optional<Token> possibleFunctionName = expectIdentifier();
+  8489209:  241-block  0
+call    0 returned 8489208
+call    1 returned 8489208
+branch  2 taken 8489208 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  241-block  1
+  8489208:  242:        if (!possibleFunctionName.has_value())
+call    0 returned 8489208
+branch  1 taken 8489208 (fallthrough)
+branch  2 taken 0
+        -:  243:        {
+  8489208:  244:            Parser::_currentToken = startToken;
+  8489208:  245:            return std::nullopt;
+  8489208:  245-block  0
+call    0 returned 8489208
+        -:  246:        }
+        -:  247:
+    #####:  248:        if (!expectOperator("(").has_value())
+    %%%%%:  248-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  248-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  248-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    $$$$$:  248-block  3
+call   13 never executed
+    $$$$$:  248-block  4
+    $$$$$:  248-block  5
+call   14 never executed
+    $$$$$:  248-block  6
+        -:  249:        {
+    #####:  250:            Parser::_currentToken = startToken;
+    #####:  251:            return std::nullopt;
+    %%%%%:  251-block  0
+call    0 never executed
+        -:  252:        }
+        -:  253:
+    #####:  254:        Statement functionCall;
+    %%%%%:  254-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  255:        functionCall.kind = StatementKind::FUNCTION_CALL;
+    #####:  256:        functionCall.StatementName = _currentToken->mText;
+    %%%%%:  256-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  257:
+    #####:  258:        while (!expectOperator(")").has_value()) {
+    %%%%%:  258-block  0
+    %%%%%:  258-block  1
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  258-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  258-block  3
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    $$$$$:  258-block  4
+call   13 never executed
+    $$$$$:  258-block  5
+    $$$$$:  258-block  6
+call   14 never executed
+    $$$$$:  258-block  7
+    #####:  259:            std::optional<Statement> parameter = expectOneValue();
+    %%%%%:  259-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  260:            if (!parameter.has_value())
+    %%%%%:  260-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  261:            {
+    #####:  262:                throw std::runtime_error("Expression attendue en parametre.");
+    %%%%%:  262-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  262-block  1
+call    4 never executed
+    $$$$$:  262-block  2
+call    5 never executed
+        -:  263:            }
+    #####:  264:            functionCall.StatementParameters.push_back(parameter.value());
+    %%%%%:  264-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  264-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+        -:  265:
+    #####:  266:            if (expectOperator(")").has_value())
+    %%%%%:  266-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  266-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  266-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    $$$$$:  266-block  3
+call   13 never executed
+    $$$$$:  266-block  4
+    $$$$$:  266-block  5
+call   14 never executed
+    $$$$$:  266-block  6
+        -:  267:            {
+    #####:  268:                break;
+    %%%%%:  268-block  0
+        -:  269:            }
+    #####:  270:            if (!expectOperator(",").has_value())
+    %%%%%:  270-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  270-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  270-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    $$$$$:  270-block  3
+call   13 never executed
+    $$$$$:  270-block  4
+    $$$$$:  270-block  5
+call   14 never executed
+    $$$$$:  270-block  6
+        -:  271:            {
+    #####:  272:                throw std::runtime_error(std::string("Une ',' est attendu pour séparer les paramètres, trouvé dans : ") + _currentToken->mText + "'.");
+    %%%%%:  272-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  272-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  272-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  272-block  3
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:  272-block  4
+call   15 never executed
+call   16 never executed
+call   17 never executed
+call   18 never executed
+call   19 never executed
+    $$$$$:  272-block  5
+call   20 never executed
+    $$$$$:  272-block  6
+    $$$$$:  272-block  7
+call   21 never executed
+    $$$$$:  272-block  8
+    $$$$$:  272-block  9
+call   22 never executed
+    $$$$$:  272-block 10
+    $$$$$:  272-block 11
+call   23 never executed
+    $$$$$:  272-block 12
+    $$$$$:  272-block 13
+call   24 never executed
+        -:  273:            }
+    #####:  274:        }
+    %%%%%:  274-block  0
+    %%%%%:  274-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  274-block  2
+call    3 never executed
+        -:  275:
+    #####:  276:        if (!expectOperator(";").has_value())
+    %%%%%:  276-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  276-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  276-block  2
+call    7 never executed
+call    8 never executed
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    $$$$$:  276-block  3
+call   13 never executed
+    $$$$$:  276-block  4
+    $$$$$:  276-block  5
+call   14 never executed
+    $$$$$:  276-block  6
+        -:  277:        {
+    #####:  278:            throw std::runtime_error("Un ';' est attendu a la fin de l'appellation de la fonction.");
+    %%%%%:  278-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  278-block  1
+call    4 never executed
+    $$$$$:  278-block  2
+call    5 never executed
+        -:  279:        }
+        -:  280:
+    #####:  281:        return functionCall;
+    %%%%%:  281-block  0
+call    0 never executed
+ 8489208*:  282:    }
+call    0 never executed
+  8489208:  282-block  0
+call    1 returned 8489208
+    $$$$$:  282-block  1
+call    2 never executed
+    $$$$$:  282-block  2
+call    3 never executed
+        -:  283:}

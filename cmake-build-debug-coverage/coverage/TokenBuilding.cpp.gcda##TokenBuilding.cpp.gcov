@@ -1,0 +1,580 @@
+        -:    0:Source:D:/GitHub/SimpleParser/Content/TokenBuilding.cpp
+        -:    0:Graph:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\TokenBuilding.cpp.gcno
+        -:    0:Data:D:\GitHub\SimpleParser\cmake-build-debug-coverage\CMakeFiles\SimpleParser.dir\Content\TokenBuilding.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "TokenBuilding.h"
+        -:    2:
+        -:    3:namespace SimpleParser
+        -:    4:{
+function _ZN12SimpleParser13TokenBuilding5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 37%
+        1:    5:	std::vector<Token> TokenBuilding::parse(const std::string& inProgram)
+        -:    6:	{
+        1:    7:		std::vector<Token> tokens;
+        1:    7-block  0
+call    0 returned 1
+        1:    8:		Token currentToken;
+call    0 returned 1
+        -:    9:
+        1:   10:		currentToken.mLineNumber = 1;
+        -:   11:
+      117:   12:		for (char _character : inProgram)
+call    0 returned 1
+call    1 returned 1
+      116:   12-block  0
+call    2 returned 116
+      116:   12-block  1
+call    3 returned 116
+      117:   12-block  2
+call    4 returned 117
+branch  5 taken 116
+branch  6 taken 1 (fallthrough)
+        -:   13:		{
+     116*:   14:			if (currentToken.mType == STRING_ESCAPE_SEQUENCE)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 116
+        -:   15:			{
+    #####:   16:				switch (_character)
+    %%%%%:   16-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+        -:   17:				{
+    #####:   18:				case 'n': 
+    #####:   19:					currentToken.mText.append(1, '\n');
+    %%%%%:   19-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   20:					break;
+    %%%%%:   20-block  0
+    #####:   21:				case 'r':
+    #####:   22:					currentToken.mText.append(1, '\r');
+    %%%%%:   22-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   23:					break;
+    %%%%%:   23-block  0
+    #####:   24:				case 't':
+    #####:   25:					currentToken.mText.append(1, '\t');
+    %%%%%:   25-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   26:					break;
+    %%%%%:   26-block  0
+    #####:   27:				case '\\':
+    #####:   28:					currentToken.mText.append(1, '\\');
+    %%%%%:   28-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   29:					break;
+    %%%%%:   29-block  0
+    #####:   30:				default:
+    #####:   31:					throw std::runtime_error(std::string("unknown escape sequence: \\") + std::string(1, _character) +
+    %%%%%:   31-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   31-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   31-block  2
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:   31-block  3
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:   31-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+call   17 never executed
+call   18 never executed
+call   19 never executed
+call   20 never executed
+call   21 never executed
+    $$$$$:   31-block  5
+call   22 never executed
+    $$$$$:   31-block  6
+    $$$$$:   31-block  7
+call   23 never executed
+    $$$$$:   31-block  8
+    $$$$$:   31-block  9
+call   24 never executed
+    $$$$$:   31-block 10
+    $$$$$:   31-block 11
+call   25 never executed
+    $$$$$:   31-block 12
+    $$$$$:   31-block 13
+call   26 never executed
+    $$$$$:   31-block 14
+    $$$$$:   31-block 15
+call   27 never executed
+    $$$$$:   31-block 16
+    #####:   32:						" in string on line " + std::to_string(currentToken.mLineNumber) + ".");
+    %%%%%:   32-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   32-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   32-block  2
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+    %%%%%:   32-block  3
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+    $$$$$:   32-block  4
+call   15 never executed
+    $$$$$:   32-block  5
+    $$$$$:   32-block  6
+call   16 never executed
+    $$$$$:   32-block  7
+    $$$$$:   32-block  8
+call   17 never executed
+    $$$$$:   32-block  9
+    $$$$$:   32-block 10
+call   18 never executed
+        -:   33:					break;
+        -:   34:				}
+        -:   35:
+    #####:   36:				currentToken.mType = STRING_LITTERAL;
+    #####:   37:				continue;
+    %%%%%:   37-block  0
+        -:   38:			}
+     116*:   39:			else if (currentToken.mType == POTENTIAL_COMMENT && _character != '/') {
+      116:   39-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 116
+    %%%%%:   39-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:   40:				currentToken.mType = OPERATOR;
+    #####:   41:				endToken(currentToken, tokens);
+    %%%%%:   41-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:				continue;
+    %%%%%:   42-block  0
+        -:   43:			}
+        -:   44:
+        -:   45:
+        -:   46:
+      116:   47:			switch (_character)
+      116:   47-block  0
+branch  0 taken 4
+branch  1 taken 1
+branch  2 taken 11
+branch  3 taken 20
+branch  4 taken 3
+branch  5 taken 2
+branch  6 taken 0
+branch  7 taken 0
+branch  8 taken 75
+        -:   48:			{
+        4:   49:			case '0':
+        -:   50:			case '1':
+        -:   51:			case '2':
+        -:   52:			case '3':
+        -:   53:			case '4':
+        -:   54:			case '5':
+        -:   55:			case '6':
+        -:   56:			case '7':
+        -:   57:			case '8':
+        -:   58:			case '9':
+        4:   59:				if (currentToken.mType == WHITESPACE) {
+        4:   59-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   60:					currentToken.mType = INTERGER_LITERAL;
+        2:   61:					currentToken.mText.append(1, _character);
+        2:   61-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   62:				} else if (currentToken.mType == POTENTIAL_DOUBLE) {
+        2:   62-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:   63:					currentToken.mType = DOUBLE_LITERAL;
+    #####:   64:					currentToken.mText.append(1, _character);
+    %%%%%:   64-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   65:				}
+        -:   66:				else {
+        2:   67:					currentToken.mText.append(1, _character);
+        2:   67-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   68:				}
+        4:   69:				break;
+        4:   69-block  0
+        -:   70:
+        -:   71:
+        1:   72:			case '.':
+        1:   73:				if (currentToken.mType == WHITESPACE) {
+        1:   73-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   74:					currentToken.mType = POTENTIAL_DOUBLE;
+    #####:   75:					currentToken.mText.append(1, _character);
+    %%%%%:   75-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   76:				}
+        1:   77:				else if (currentToken.mType == INTERGER_LITERAL) {
+        1:   77-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   78:					currentToken.mType = DOUBLE_LITERAL;
+        1:   79:					currentToken.mText.append(1, _character);
+        1:   79-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   80:				}
+    #####:   81:				else if (currentToken.mType == STRING_LITTERAL) {
+    %%%%%:   81-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   82:					currentToken.mText.append(1, _character);
+    %%%%%:   82-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   83:				}
+        -:   84:				else {
+    #####:   85:					endToken(currentToken, tokens);
+    %%%%%:   85-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   86:					currentToken.mType = OPERATOR;
+    #####:   87:					currentToken.mText.append(1, _character);
+    %%%%%:   87-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   88:					endToken(currentToken, tokens);
+    %%%%%:   88-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   89:				}
+        1:   90:				break;
+        1:   90-block  0
+        -:   91:
+        -:   92:
+        -:   93:
+       11:   94:			case '{':
+        -:   95:			case '}':
+        -:   96:			case '(':
+        -:   97:			case ')':
+        -:   98:			case '=':
+        -:   99:			case '-':
+        -:  100:			case ';':
+        -:  101:			case ',':
+       11:  102:				if (currentToken.mType != STRING_LITTERAL) {
+       11:  102-block  0
+branch  0 taken 11 (fallthrough)
+branch  1 taken 0
+       11:  103:					endToken(currentToken, tokens);
+       11:  103-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:  104:					currentToken.mType = OPERATOR;
+       11:  105:					currentToken.mText.append(1, _character);
+       11:  105-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:  106:					endToken(currentToken, tokens);
+       11:  106-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  107:				}
+        -:  108:				else {
+    #####:  109:					currentToken.mText.append(1, _character);
+    %%%%%:  109-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  110:				}
+       11:  111:				break;
+       11:  111-block  0
+        -:  112:
+        -:  113:
+        -:  114:
+       20:  115:			case ' ':
+        -:  116:			case '\t':
+       20:  117:				if (currentToken.mType == STRING_LITTERAL || currentToken.mType == COMMENT)
+       20:  117-block  0
+branch  0 taken 11 (fallthrough)
+branch  1 taken 9
+       11:  117-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 11
+        -:  118:				{	
+        9:  119:					currentToken.mText.append(1, _character);
+        9:  119-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  120:				}
+        -:  121:				else {
+       11:  122:					endToken(currentToken, tokens);
+       11:  122-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  123:				}
+       20:  124:				break;
+       20:  124-block  0
+        -:  125:
+        3:  126:			case '\n':
+        -:  127:			case '\r':
+        3:  128:				endToken(currentToken, tokens);
+        3:  128-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  129:				++currentToken.mLineNumber;
+        3:  130:				break;
+        3:  130-block  0
+        -:  131:
+        -:  132:
+        -:  133:
+        2:  134:			case '"':
+        2:  135:				if (currentToken.mType != STRING_LITTERAL) {
+        2:  135-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:  136:					endToken(currentToken, tokens);
+        1:  136-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  137:					currentToken.mType = STRING_LITTERAL;
+        1:  137-block  0
+        -:  138:				}
+        1:  139:				else if (currentToken.mType == STRING_LITTERAL) {
+        1:  139-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  140:					endToken(currentToken, tokens);
+        1:  140-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  141:				}
+        2:  142:				break;
+        2:  142-block  0
+        -:  143:
+    #####:  144:			case '\\':
+    #####:  145:				if (currentToken.mType == STRING_LITTERAL) {
+    %%%%%:  145-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  146:					currentToken.mType = STRING_ESCAPE_SEQUENCE;
+    %%%%%:  146-block  0
+        -:  147:				}
+        -:  148:				else {
+    #####:  149:					endToken(currentToken, tokens);
+    %%%%%:  149-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  150:					currentToken.mType = OPERATOR;
+    #####:  151:					currentToken.mText.append(1, _character);
+    %%%%%:  151-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  152:					endToken(currentToken, tokens);
+    %%%%%:  152-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  153:				}
+    #####:  154:				break;
+    %%%%%:  154-block  0
+        -:  155:
+        -:  156:
+    #####:  157:			case '/':
+    #####:  158:				if (currentToken.mType == STRING_LITTERAL)
+    %%%%%:  158-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  159:				{
+    #####:  160:					currentToken.mText.append(1, _character);
+    %%%%%:  160-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  161:				} else if (currentToken.mType == POTENTIAL_COMMENT)
+    %%%%%:  161-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  162:				{
+    #####:  163:					currentToken.mType = COMMENT;
+    #####:  164:					currentToken.mText.erase();
+    %%%%%:  164-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  165:				}
+        -:  166:				else {
+    #####:  167:					endToken(currentToken, tokens);
+    %%%%%:  167-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  168:					currentToken.mType = POTENTIAL_COMMENT;
+    #####:  169:					currentToken.mText.append(1, _character);
+    %%%%%:  169-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  170:				}
+    #####:  171:				break;
+    %%%%%:  171-block  0
+        -:  172:
+        -:  173:
+       75:  174:			default:
+       75:  175:				if (currentToken.mType == WHITESPACE || currentToken.mType == INTERGER_LITERAL
+       75:  175-block  0
+branch  0 taken 66 (fallthrough)
+branch  1 taken 9
+       66:  175-block  1
+branch  2 taken 66 (fallthrough)
+branch  3 taken 0
+       66:  176:					|| currentToken.mType == DOUBLE_LITERAL)
+       66:  176-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 66
+        -:  177:				{
+        9:  178:					endToken(currentToken, tokens);
+        9:  178-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:  179:					currentToken.mType = IDENTIFIER;
+        9:  180:					currentToken.mText.append(1, _character);
+        9:  180-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  181:				}
+        -:  182:				else {
+       66:  183:					currentToken.mText.append(1, _character);
+       66:  183-block  0
+call    0 returned 66
+branch  1 taken 66 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  184:				}
+       75:  185:				break;
+       75:  185-block  0
+        -:  186:			}
+        -:  187:		}
+        -:  188:
+        1:  189:		endToken(currentToken, tokens);
+        1:  189-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  190:
+        2:  191:		return tokens;
+        1:  191-block  0
+        1:  191-block  1
+        1:  192:	}
+        1:  192-block  0
+call    0 returned 1
+    $$$$$:  192-block  1
+call    1 never executed
+    $$$$$:  192-block  2
+call    2 never executed
+        -:  193:
+function _ZN12SimpleParser13TokenBuilding8endTokenERNS_5TokenERSt6vectorIS1_SaIS1_EE called 48 returned 100% blocks executed 50%
+       48:  194:	void TokenBuilding::endToken(Token &token, std::vector<Token> &tokens)
+        -:  195:	{
+       48:  196:		if (token.mType == COMMENT)
+       48:  196-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 48
+        -:  197:		{
+    #####:  198:			std::cout << "Ignoring comment : " << token.mText;
+    %%%%%:  198-block  0
+call    0 never executed
+call    1 never executed
+       48:  199:		} else if (token.mType != WHITESPACE)
+       48:  199-block  0
+branch  0 taken 23 (fallthrough)
+branch  1 taken 25
+        -:  200:		{
+       23:  201:			tokens.push_back(token);
+       23:  201-block  0
+call    0 returned 23
+        -:  202:		}
+       48:  203:		if (token.mType == POTENTIAL_DOUBLE)
+       48:  203-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 48
+        -:  204:		{
+    #####:  205:			if (token.mText.compare(".") == 0) {
+    %%%%%:  205-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  206:				token.mType = OPERATOR;
+    %%%%%:  206-block  0
+        -:  207:			}
+        -:  208:			else {
+    #####:  209:				token.mType = DOUBLE_LITERAL;
+    %%%%%:  209-block  0
+        -:  210:			}
+        -:  211:		}
+        -:  212:		
+       48:  213:		token.mType = WHITESPACE;
+       48:  214:		token.mText.erase();
+       48:  214-block  0
+call    0 returned 48
+       48:  215:	}
+        -:  216:
+function _ZNK12SimpleParser5Token10DebugPrintEv called 0 returned 0% blocks executed 0%
+    #####:  217:	void Token::DebugPrint() const 
+        -:  218:	{
+    #####:  219:		std::cout << "Token(" << sTokenTypeStrins[mType] << ", \"" << mText << "\", " << mLineNumber << ")." << std::endl;
+    %%%%%:  219-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+call    7 never executed
+    #####:  220:	}
+        -:  221:}
