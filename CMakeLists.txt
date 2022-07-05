@@ -11,4 +11,4 @@ add_executable(SimpleParser
         Content/Parser.h
         Content/TokenBuilding.cpp
         Content/TokenBuilding.h
-        main.cpp)
+        main.cpp Content/FunctionDefinition.cpp Content/FunctionDefinition.h Content/Type.cpp Content/Type.h Content/Statement.cpp Content/Statement.h)
