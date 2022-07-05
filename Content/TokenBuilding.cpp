@@ -28,7 +28,7 @@ namespace SimpleParser
 					currentToken.mText.append(1, '\\');
 					break;
 				default:
-					throw std::runtime_error::runtime_error(std::string("unknown escape sequence: \\") + std::string(1, _character) +
+					throw std::runtime_error(std::string("unknown escape sequence: \\") + std::string(1, _character) +
 						" in string on line " + std::to_string(currentToken.mLineNumber) + ".");
 					break;
 				}

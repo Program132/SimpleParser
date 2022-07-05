@@ -10,7 +10,7 @@ auto main() -> int
 {
 	std::cout << "Simple Parser Loading... \n\n" << std::endl;
 
-	std::ifstream file("test.myc");
+	std::ifstream file("../test.myc");
 	if (!file) {
 		std::cerr << "Did not find the file." << std::endl;
 		return 0;
