@@ -19,7 +19,6 @@ auto main() -> int
 
 	// std::cout << f_content << std::endl;
 
-
 	TokenBuilding tokenBuilding;
 	std::vector<Token> tokens = tokenBuilding.parse(f_content);
 
@@ -29,7 +28,6 @@ auto main() -> int
             currentToken.debugPrint();
         }
     */
-
 
 	Parser parser;
 	parser.parse(tokens);
