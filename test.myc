@@ -1,4 +1,4 @@
-void main(void) {
+void main(int argc, char argv) {
 	double foo = 1.5;
-	print("Wow it has been some years since I learned C++");
+	printf("Wow it has been some years since I learned C++", 25);
 }
