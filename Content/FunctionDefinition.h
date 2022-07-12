@@ -15,7 +15,7 @@ namespace SimpleParser {
         std::string ParameterName;
         Type ParameterType;
 
-        void DebugPrint() const;
+        void DebugPrint(size_t indent) const;
     };
 
     class FunctionDefinition {

@@ -1,287 +1,393 @@
 #include "Parser.h"
 
 namespace SimpleParser {
-	Parser::Parser() {
-		mTypes["void"] = Type("void", VOID);
-		mTypes["int"] = Type("signed int", INT32);
-		mTypes["unsigned"] = Type("unsignd int", INT32);
-        mTypes["char"] = Type("signed char", INT8);
-		mTypes["uint8_t"] = Type("uint8_t", INT8);
-        mTypes["double"] = Type("double", DOUBLE);
-	}
 
-    void Parser::debugPrint() const
-    {
-        for (auto funcPair : Functions)
-        {
-            funcPair.second.DebugPrint();
-        }
-    }
+    using namespace std;
 
+    struct OperatorEntry {
+        string mName;
+        size_t mPrecedence;
+    };
 
-	bool Parser::expectFunctionDef() {
-        std::vector<Token>::iterator parseStart = _currentToken;
-		std::optional<Type> possibleType = expectType();
-		if (possibleType.has_value()) // Un type à été trouvé
-		{
-			std::optional<Token> possibleName = expectIdentifier();
+    static std::map<string, OperatorEntry> sOperators{
+            // precedence 0 is reserved for "no operator".
+            {"=", OperatorEntry{"=", 1}},
+            {"<", OperatorEntry{"<", 5}},
+            {"+", OperatorEntry{"+", 10}},
+            {"-", OperatorEntry{"-", 10}},
+            {"/", OperatorEntry{"/", 50}},
+            {"*", OperatorEntry{"*", 50}}
+    };
 
-			if (possibleName.has_value()) { // On a un nom
-				std::optional<Token> possibleOperator = expectOperator("(");
+    bool Parser::expectFunctionDef() {
+        vector<Token>::iterator parseStart = _currentToken;
+        optional<Type> possibleType = expectType();
+        if (possibleType.has_value()) { // We have a type!
+            optional<Token> possibleName = expectIdentifier();
 
-				if (possibleOperator.has_value()) { // On a une fonction
+            if (possibleName.has_value()) { // We have a name!
+                optional<Token> possibleOperator = expectOperator("(");
+
+                if (possibleOperator.has_value()) { // We have a function!
 
                     FunctionDefinition func;
-                    func.FunctionName = possibleName->mText;
+                    func.mReturnsSomething = possibleType->mName != "void";
+                    func.mName = possibleName->mText;
 
-                    while (!expectOperator(")").has_value())
-                    {
-                        std::optional<Type> possibleTypeParameter = expectType();
-                        if (!possibleTypeParameter.has_value())
-                        {
-                            throw std::runtime_error("Un type est attendu avant le nom de l'argument.");
+                    while(!expectOperator(")").has_value()) {
+                        optional<Type> possibleParamType = expectType();
+                        if (!possibleParamType.has_value()) {
+                            throw runtime_error("Expected a type at start of argument list.");
                         }
+                        optional<Token> possibleVariableName = expectIdentifier();
 
-                        ParameterFunction param;
-                        param.ParameterType = possibleTypeParameter->mName;
-                        std::optional<Token> possibleVariableNameParameter = expectIdentifier();
-                        if (possibleVariableNameParameter.has_value())
-                        {
-                            param.ParameterName = possibleVariableNameParameter->mText;
+                        ParameterDefinition param;
+                        param.mType = possibleParamType->mName;
+                        if (possibleVariableName.has_value()) {
+                            param.mName = possibleVariableName->mText;
                         }
+                        func.mParameters.push_back(param);
 
-                        func.FunctionParameters.push_back(param);
-
-                        if (expectOperator(")").has_value())
-                        {
+                        if (expectOperator(")").has_value()) {
                             break;
                         }
-                        if (!expectOperator(",").has_value() && !expectOperator(")").has_value())
-                        {
-                            throw std::runtime_error("Un ',' est attendu pour separer les parametres. Une ')' est attendu pour indiquer la fin de la liste des arguments.");
+                        if (!expectOperator(",").has_value()) {
+                            throw runtime_error("Expected ',' to separate parameters or ')' to indicate end of argument list.");
                         }
                     }
 
-                    std::optional<std::vector<Statement>> statements = parseFunctionBody();
-                    if (!statements.has_value())
-                    {
-                        Parser::_currentToken = parseStart;
+                    optional<vector<Statement>> statements = parseFunctionBody();
+                    if (!statements.has_value()) {
+                        _currentToken = parseStart;
                         return false;
                     }
                     func.FunctionStatements.insert(func.FunctionStatements.begin(), statements->begin(), statements->end());
-
+                    
                     Functions[func.FunctionName] = func;
 
                     return true;
-				} else {
-                    Parser::_currentToken = parseStart;
-				}
-			} else {
-                Parser::_currentToken = parseStart;
-			}
-		}
-		return false;
-	}
+                } else {
+                    _currentToken = parseStart;
+                }
+            } else {
+                _currentToken = parseStart;
+            }
+        }
+        return false;
+    }
 
-	void Parser::parse(std::vector<Token>& tokens)
-	{
-		Parser::_endToken = tokens.end();
-		Parser::_currentToken = tokens.begin();
+    void Parser::parse(vector<Token> &tokens) {
+        _endToken = tokens.end();
+        _currentToken = tokens.begin();
 
-		while (Parser::_currentToken != Parser::_endToken)
-		{
-			if (Parser::expectFunctionDef())
-			{
+        while(_currentToken != _endToken) {
+            if (expectFunctionDef()) {
 
-			}
-			else {
-				std::cerr <<  "Identifier inconnu : " << Parser::_currentToken->mText << std::endl;
-				++Parser::_currentToken;
-			}
-		}
-	}
+            } else {
+                cerr << "Unknown identifier " << _currentToken->mText << "." << endl;
+                ++_currentToken;
+            }
+        }
+    }
 
-	std::optional<Token> Parser::expectIdentifier(std::string const& name)
-	{
-		if (Parser::_currentToken == Parser::_endToken) { return std::nullopt; }
+    optional<Token> Parser::expectIdentifier(const string &name) {
+        if (_currentToken == _endToken) { return nullopt; }
+        if (_currentToken->mType != IDENTIFIER) { return nullopt; }
+        if (!name.empty() && _currentToken->mText != name) { return nullopt; }
 
-		if (Parser::_currentToken->mType != IDENTIFIER) { return std::nullopt; }
+        Token returnToken = *_currentToken;
+        ++_currentToken;
+        return returnToken;
+    }
 
-		if (!name.empty() && Parser::_currentToken->mText != name) { return std::nullopt; }
+    optional<Token> Parser::expectOperator(const string &name) {
+        if (_currentToken == _endToken) { return nullopt; }
+        if (_currentToken->mType != OPERATOR) { return nullopt; }
+        if (!name.empty() && _currentToken->mText != name) { return nullopt; }
 
-		Token returnToken = *Parser::_currentToken;
-		++Parser::_currentToken;
-		return returnToken;
-	}
+        Token returnToken = *_currentToken;
+        ++_currentToken;
+        return returnToken;
+    }
 
-	std::optional<Token> Parser::expectOperator(std::string const& name)
-	{
-		if (Parser::_currentToken == Parser::_endToken) { return std::nullopt; }
-		if (Parser::_currentToken->mType != OPERATOR) { return std::nullopt; }
-		if (!name.empty() && Parser::_currentToken->mText != name) { return std::nullopt; }
+    Parser::Parser() {
+        mTypes["void"] = Type("void", VOID);
+        mTypes["int"] = Type("signed int", INT32);
+        mTypes["unsigned"] = Type("unsigned int", UINT32);
+        mTypes["char"] = Type("signed char", INT8);
+        mTypes["uint8_t"] = Type("uint8_t", INT8);
+        mTypes["double"] = Type("double", DOUBLE);
+    }
 
-		Token returnToken = *Parser::_currentToken;
-		++Parser::_currentToken;
-		return returnToken;
-	}
+    optional<Type> Parser::expectType() {
+        optional<Token> possibleType = expectIdentifier();
+        if (!possibleType) { return nullopt; }
 
-    std::optional<Type> Parser::expectType() {
-        std::optional<Token> possibleType = expectIdentifier();
-        if (!possibleType) { return std::nullopt; }
-
-        std::map<std::string, Type>::iterator foundType = mTypes.find(possibleType->mText);
+        map<string, Type>::iterator foundType = mTypes.find(possibleType->mText);
         if (foundType == mTypes.end()) {
-            --Parser::_currentToken;
-            return std::nullopt;
+            --_currentToken;
+            return nullopt;
         }
 
         return foundType->second;
     }
 
-    std::optional<std::vector<Statement>> Parser::parseFunctionBody()
-    {
+    optional<vector<Statement>> Parser::parseFunctionBody() {
         if (!expectOperator("{").has_value()) {
-            return std::nullopt;
+            return nullopt;
         }
 
-        std::vector<Statement> statements;
+        vector<Statement> statements;
 
-        while (!expectOperator("}").has_value())
-        {
-            std::optional<Statement> statement = expectOneValue();
+        while(!expectOperator("}").has_value()) {
+            optional<Statement> statement = expectStatement();
             if (statement.has_value()) {
                 statements.push_back(statement.value());
+            }
+
+            if (!expectOperator(";").has_value()) {
+                size_t lineNo = (_currentToken != _endToken) ? _currentToken->mLineNumber : 999999;
+                throw runtime_error(string("Expected ';' at end of statement in line ") + to_string(lineNo) + ".");
             }
         }
 
         return statements;
     }
 
-    std::optional<Statement> Parser::expectOneValue()
-    {
-        std::optional<Statement> res;
-        if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == DOUBLE_LITERAL)
-        {
-            Statement doubleLitteralStatement;
-            doubleLitteralStatement.kind = StatementKind::LITTERAL;
-            doubleLitteralStatement.StatementName = _currentToken->mText;
-            doubleLitteralStatement.StatementType = Type("double", DOUBLE);
-            res = doubleLitteralStatement;
-            ++Parser::_currentToken;
+    void Parser::debugPrint() const {
+        for (auto funcPair : mFunctions) {
+            funcPair.second.debugPrint();
         }
-        else if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == INTERGER_LITERAL)
-        {
-            Statement integerLitteralStatement;
-            integerLitteralStatement.kind = StatementKind::LITTERAL;
-            integerLitteralStatement.StatementName = _currentToken->mText;
-            integerLitteralStatement.StatementType = Type("signed integer", INT32);
-            res = integerLitteralStatement;
-            ++Parser::_currentToken;
-        }
-        else if (Parser::_currentToken != Parser::_endToken && Parser::_currentToken->mType == STRING_LITTERAL)
-        {
-            Statement stringLitteralStatement;
-            stringLitteralStatement.kind = StatementKind::LITTERAL;
-            stringLitteralStatement.StatementName = Parser::_currentToken->mText;
-            stringLitteralStatement.StatementType = Type("string", UINT8);
-            res = stringLitteralStatement;
-            ++Parser::_currentToken;
-        }
-        else {
-            res = expectVariableDeclaration();
-        }
-
-        if (!res.has_value())
-        {
-            res = expectFunctionCall();
-        }
-
-        return res;
     }
 
-    std::optional<Statement> Parser::expectVariableDeclaration()
-    {
-        std::vector<Token>::iterator startToken = _currentToken;
-        std::optional<Type> possibleType = expectType();
-        if (!possibleType.has_value())
-        {
-            Parser::_currentToken = startToken;
-            return std::nullopt;
+    optional<Statement> Parser::expectOneValue() {
+        optional<Statement> result;
+        auto savedToken = _currentToken;
+
+        if (_currentToken != _endToken && _currentToken->mType == DOUBLE_LITERAL) {
+            Statement doubleLiteralStatement;
+            doubleLiteralStatement.kind = StatementKind::LITTERAL;
+            doubleLiteralStatement.mName = _currentToken->mText;
+            doubleLiteralStatement.mType = Type("double", DOUBLE);
+            result = doubleLiteralStatement;
+            ++_currentToken;
+        } else if (_currentToken != _endToken && _currentToken->mType == INTEGER_LITERAL) {
+            Statement integerLiteralStatement;
+            integerLiteralStatement.kind = StatementKind::LITTERAL;
+            integerLiteralStatement.mName = _currentToken->mText;
+            integerLiteralStatement.mType = Type("signed integer", INT32);
+            result = integerLiteralStatement;
+            ++_currentToken;
+        } else if (_currentToken != _endToken && _currentToken->mType == STRING_LITERAL) {
+            Statement stringLiteralStatement;
+            stringLiteralStatement.kind = StatementKind::LITTERAL;
+            stringLiteralStatement.mName = _currentToken->mText;
+            stringLiteralStatement.mType = Type("string", UINT8);
+            result = stringLiteralStatement;
+            ++_currentToken;
+        } else if (expectOperator("(").has_value()) {
+            result = expectExpression();
+            if (!expectOperator(")").has_value()) {
+                throw runtime_error("Unbalanced '(' in parenthesized expression.");
+            }
+        } else if (auto variableName = expectIdentifier()) {
+            if (expectOperator("(")) {
+                _currentToken = savedToken;
+            } else {
+                Statement variableNameStatement;
+                variableNameStatement.kind = StatementKind::VARIABLE_NAME;
+                variableNameStatement.mName = variableName->mText;
+                result = variableNameStatement;
+            }
+        }
+        if (!result.has_value()) {
+            result = expectFunctionCall();
+        }
+        return result;
+    }
+
+    optional<Statement> Parser::expectVariableDeclaration() {
+        vector<Token>::iterator startToken = _currentToken;
+        optional<Type> possibleType = expectType();
+        if (!possibleType.has_value()) {
+            _currentToken = startToken;
+            return nullopt;
         }
 
-        std::optional<Token> possibleVariableName = expectIdentifier();
-        if (!possibleVariableName.has_value()) {
-            Parser::_currentToken = startToken;
-            return std::nullopt;
+        optional<Token> possibleVariableName = expectIdentifier();
+        if (!possibleType.has_value()) {
+            _currentToken = startToken;
+            return nullopt;
         }
 
         Statement statement;
-        statement.kind = StatementKind::VARIABLE_DECLARATION;
-        statement.StatementName = possibleVariableName->mText;
-        statement.StatementType = possibleType.value();
 
-        if (expectOperator("=").has_value())
-        {
-            std::optional<Statement> initialValue = expectOneValue();
-            if (!initialValue.has_value())
-            {
-                throw std::runtime_error("Une valeur est attendu a droite du '='.");
+        statement.kind = StatementKind::VARIABLE_DECLARATION;
+        statement.mName = possibleVariableName->mText;
+        statement.mType = possibleType.value();
+
+        if (expectOperator("=").has_value()) {
+            optional<Statement> initialValue = expectExpression();
+            if (!initialValue.has_value()) {
+                throw runtime_error("Expected initial value to right of '=' in variable declaration.");
             }
 
-            statement.StatementParameters.push_back(initialValue.value());
-        }
-
-        if (!expectOperator(";").has_value())
-        {
-            throw std::runtime_error("Un ';' est attendu a la fin de la declaration de la variable.");
+            statement.mParameters.push_back(initialValue.value());
         }
 
         return statement;
     }
 
-    std::optional<Statement> Parser::expectFunctionCall() {
-        std::vector<Token>::iterator startToken = Parser::_currentToken;
+    optional<Statement> Parser::expectFunctionCall() {
+        vector<Token>::iterator startToken = _currentToken;
 
-        std::optional<Token> possibleFunctionName = expectIdentifier();
-        if (!possibleFunctionName.has_value())
-        {
-            Parser::_currentToken = startToken;
-            return std::nullopt;
+        optional<Token> possibleFunctionName = expectIdentifier();
+        if (!possibleFunctionName.has_value()) {
+            _currentToken = startToken;
+            return nullopt;
         }
 
-        if (!expectOperator("(").has_value())
-        {
-            Parser::_currentToken = startToken;
-            return std::nullopt;
+        if (!expectOperator("(").has_value()) {
+            _currentToken = startToken;
+            return nullopt;
         }
 
         Statement functionCall;
         functionCall.kind = StatementKind::FUNCTION_CALL;
-        functionCall.StatementName = possibleFunctionName->mText;
+        functionCall.mName = possibleFunctionName->mText;
 
-        while (!expectOperator(")").has_value()) {
-            std::optional<Statement> parameter = expectOneValue();
-            if (!parameter.has_value())
-            {
-                throw std::runtime_error("Expression attendue en parametre.");
+        while(!expectOperator(")").has_value()) {
+            optional<Statement> parameter = expectExpression();
+            if (!parameter.has_value()) {
+                throw runtime_error("Expected expression as parameter.");
             }
+            functionCall.mParameters.push_back(parameter.value());
 
-            functionCall.StatementParameters.push_back(parameter.value());
-            if (expectOperator(")").has_value())
-            {
+            if (expectOperator(")").has_value()) {
                 break;
             }
-            if (!expectOperator(",").has_value())
-            {
-                throw std::runtime_error(std::string("Une ',' est attendu pour separer les parametres, trouve dans : ") + Parser::_currentToken->mText + "'.");
+            if (!expectOperator(",").has_value()) {
+                // TODO: Check whether we still have a current token.
+                throw runtime_error(string("Expected ',' to separate parameters, found '") + _currentToken->mText + "'.");
             }
-        }
-
-        if (!expectOperator(";").has_value())
-        {
-            throw std::runtime_error("Un ';' est attendu a la fin de l'appellation de la fonction.");
         }
 
         return functionCall;
     }
+
+    optional<Statement> Parser::expectWhileLoop() {
+        Statement whileLoop{"", Type{"void", VOID}, {}, StatementKind::WHILE_LOOP };
+
+        size_t lineNo = (_currentToken != _endToken) ? _currentToken->mLineNumber : SIZE_MAX;
+        if (!expectIdentifier("while")) {
+            return nullopt;
+        }
+
+        if (!expectOperator("(")) {
+            throw runtime_error(string("Expected opening parenthesis after \"while\" on line ") + to_string(lineNo) + ".");
+        }
+
+        if (_currentToken != _endToken) {
+            lineNo = _currentToken->mLineNumber;
+        }
+        optional<Statement> condition = expectExpression();
+        if (!condition) {
+            throw runtime_error(string("Expected loop condition after \"while\" statement on line ") + to_string(lineNo) + ".");
+        }
+
+        whileLoop.mParameters.push_back(condition.value());
+
+        if (!expectOperator(")")) {
+            throw runtime_error(string("Expected closing parenthesis after \"while\" condition on line ") + to_string(lineNo) + ".");
+        }
+
+        if (!expectOperator("{")) {
+            throw runtime_error(string("Expected opening curly bracket after \"while\" condition on line ") + to_string(lineNo) + ".");
+        }
+
+        while (_currentToken != _endToken && !expectOperator("}")) {
+            auto currentStatement = expectStatement();
+            if (!currentStatement) {
+                break;
+            }
+            whileLoop.mParameters.push_back(currentStatement.value());
+
+            if (!expectOperator(";").has_value()) {
+                size_t lineNo = (_currentToken != _endToken) ? _currentToken->mLineNumber : 999999;
+                throw runtime_error(string("Expected ';' at end of statement in line ") + to_string(lineNo) + ".");
+            }
+        }
+
+        return whileLoop;
+    }
+
+    optional<Statement> Parser::expectStatement() {
+        optional<Statement> result = expectWhileLoop();
+        if (!result.has_value()) {
+            result = expectVariableDeclaration();
+        }
+        if (!result.has_value()) {
+            result = expectExpression();
+        }
+        return result;
+    }
+
+    optional<Statement> Parser::expectExpression() {
+        optional<Statement> lhs = expectOneValue();
+        if (!lhs.has_value()) { return nullopt; }
+
+        while (true) {
+            optional<Token> op = expectOperator();
+            if (!op.has_value()) { break; }
+            int rhsPrecedence = operatorPrecedence(op->mText);
+            if (rhsPrecedence == 0) {
+                --_currentToken;
+                return lhs;
+            }
+            optional<Statement> rhs = expectOneValue();
+            if (!rhs.has_value()) {
+                --_currentToken;
+                return lhs;
+            }
+
+            Statement * rightmostStatement = findRightmostStatement(&lhs.value(), rhsPrecedence);
+            if (rightmostStatement) {
+                Statement operatorCall;
+                operatorCall.kind = StatementKind::OPERATOR_CALL;
+                operatorCall.mName = op->mText;
+                operatorCall.mParameters.push_back(rightmostStatement->mParameters.at(1));
+                operatorCall.mParameters.push_back(rhs.value());
+                rightmostStatement->mParameters[1] = operatorCall;
+            } else {
+                Statement operatorCall;
+                operatorCall.kind = StatementKind::OPERATOR_CALL;
+                operatorCall.mName = op->mText;
+                operatorCall.mParameters.push_back(lhs.value());
+                operatorCall.mParameters.push_back(rhs.value());
+                lhs = operatorCall;
+            }
+        }
+
+        return lhs;
+    }
+
+    Statement * Parser::findRightmostStatement(Statement *lhs, size_t rhsPrecedence) {
+        if (lhs->kind != StatementKind::OPERATOR_CALL) { return nullptr; }
+        if (operatorPrecedence(lhs->mName) >= rhsPrecedence) { return nullptr; }
+
+        Statement * rhs = &lhs->mParameters.at(1);
+        rhs = findRightmostStatement(rhs, rhsPrecedence);
+        if (rhs == nullptr) { return lhs; }
+        return rhs;
+    }
+
+
+    size_t Parser::operatorPrecedence(const string &operatorName) {
+        map<string, OperatorEntry>::iterator foundOperator = sOperators.find(operatorName);
+        if (foundOperator == sOperators.end()) {
+            return 0;
+        }
+        return foundOperator->second.mPrecedence;
+    }
+
 }

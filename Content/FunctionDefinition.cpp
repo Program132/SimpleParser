@@ -5,22 +5,22 @@ namespace SimpleParser {
     {
         std::cout << FunctionName << "(\n";
 
-        for (ParameterFunction param : FunctionParameters)
+        for (auto &param : FunctionParameters) // ParameterFunction
         {
-            param.DebugPrint();
+            param.DebugPrint(1);
             std::cout << "\n";
         }
 
         std::cout << ") {\n" << std::endl;
         for (Statement statement : FunctionStatements)
         {
-            statement.DebugPrint();
+            statement.DebugPrint(0);
         }
         std::cout << "} \n" << std::endl;
     }
 
-    void ParameterFunction::DebugPrint() const
+    void ParameterFunction::DebugPrint(size_t indent) const
     {
-        std::cout << ParameterType.mName << " " << ParameterName;
+        std::cout << std::string(indent, '\t') << ParameterType.mName << " " << ParameterName;
     }
 }
